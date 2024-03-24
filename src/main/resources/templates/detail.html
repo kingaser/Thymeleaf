@@ -43,18 +43,18 @@
         </td>
     </tr>-->
 </table>
-<button onabort="listReq()">목록</button>
-<button onabort="updateReq()">수정</button>
-<button onabort="deleteReq()">삭제</button>
+<button onclick="listReq()">목록</button>
+<button onclick="updateReq()">수정</button>
+<button onclick="deleteReq()">삭제</button>
 </body>
 <script th:inline="javascript">
     const listReq = () => {
         location.href = "/list";
     }
-    /*const updateReq = () => {
+    const updateReq = () => {
         location.href = `/update/[[${board.id}]]`;
     }
-    const deleteReq = () => {
+    /*const deleteReq = () => {
         location.href = `/delete/[[${board.id}]]`;
     }*/
 </script>
