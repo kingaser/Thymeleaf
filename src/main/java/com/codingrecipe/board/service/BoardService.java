@@ -17,7 +17,7 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public void save(BoardDTO boardDTO) {
+    public void save(BoardDTO boardDTO) throws IOException {
         if (boardDTO.getBoardFile().get(0).isEmpty()) {
             // 파일 없을 경우
             boardDTO.setFileAttached(0);
@@ -49,11 +49,7 @@ public class BoardService {
 
                 // 파일 저장용 폴더에 파일 저장 처리
                 String savePath = "D:/thymeleaf/upload_files/" + storedFileName;
-                try {
-                    boardFile.transferTo(new File(savePath));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                boardFile.transferTo(new File(savePath));
 
                 // board_file_table 저장 처리
                 boardRepository.saveFile(boardFileDTO);

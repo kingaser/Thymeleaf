@@ -42,6 +42,6 @@ public class BoardRepository {
     }
 
     public List<BoardFileDTO> findFile(Long id) {
-        return sql.selectOne("Board.findFile", id);
+        return sql.selectList("Board.findFile", id);
     }
 }
